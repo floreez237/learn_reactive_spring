@@ -1,0 +1,54 @@
+spring:
+  profiles:
+    active: dev
+---
+spring:
+  config:
+    activate:
+      on-profile: dev
+  security:
+    oauth2:
+      client:
+        registration:
+          google:
+            client-id: 782788021946-p724nvi6qr9267gim7im9sik5jvu1khs.apps.googleusercontent.com
+            client-secret: Q-bVPtQCi4tj3XJBrQ2nwrKH
+
+  data:
+    mongodb:
+      host: localhost
+      port: 27017
+      database: local
+logging:
+  level:
+    org:
+      springframework:
+        security: debug
+
+
+
+---
+spring:
+  config:
+    activate:
+      on-profile: nonprod
+  data:
+    mongodb:
+      host: localhost
+      port: 27017
+      database: local
+---
+spring:
+  config:
+    activate:
+      on-profile: prod
+  data:
+    mongodb:
+      host: localhost
+      port: 27017
+      database: local
+---
+spring:
+  config:
+    activate:
+      on-profile: test
